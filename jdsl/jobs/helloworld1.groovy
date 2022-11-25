@@ -1,3 +1,7 @@
+folder('jobs'){
+  displayName('Jobs')
+    description('Build jobs folder')
+}
 multibranchPipelineJob('jobs/jenkins-scratch-hw1') {
   displayName("Hello World 1")
   description("Build job for hello world 1")
@@ -12,9 +16,10 @@ multibranchPipelineJob('jobs/jenkins-scratch-hw1') {
       numToKeep(20)
     }
   }
-  factory {
-    workflowMultiBranchProjectFactory {
-      scriptPath('my-location/Jenkinsfile')
+  configure {
+    it / factory(class: 'org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory') {
+        owner(class: 'org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject', reference: '../..')
+        scriptPath("Jenkinsfile")
     }
   }
 }
