@@ -1,7 +1,4 @@
-folder('jobs'){
-  displayName('Jobs')
-    description('Build jobs folder')
-}
+
 multibranchPipelineJob('jobs/jenkins-scratch-hw1') {
   displayName("Hello World 1")
   description("Build job for hello world 1")
