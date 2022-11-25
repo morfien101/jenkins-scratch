@@ -9,6 +9,7 @@ multibranchPipelineJob('jobs/jenkins-scratch-hw1') {
     git {
       id('cc0c52c42e584f1f8081cf50f8e116cf') // IMPORTANT: use a constant and unique identifier
       remote('https://github.com/morfien101/jenkins-scratch-hw1')
+      includes('*')
     }
   }
   orphanedItemStrategy {
